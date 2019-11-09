@@ -8,7 +8,7 @@ To start using the application follow the next steps:
 
 ## Get the Code
 ```
-git clone
+git clone https://github.com/JohanPelaez/angular-user-crud.git
 cd angular-user-crud
 npm i
 ```
