@@ -20,7 +20,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 # Functionalities
 
 ## How to EDIT a user using Ngrx/store & Effects:
-1. To edit a user, the system **dispatch** an event with the action **"UPDATE_GAME"**.
+1. To edit a user, the system **dispatch** an event with the action **"UPDATE_USER"**.
 2. The **reducer** related to the module **users** is executed and the state is changed updating the information of specific user.
 3. An **“ngrx effect”** class is implemented (UserEffects) by module and will be triggered when we dispatch actions with the store.
 4. Using some selectors defined in my **reducer** class, we can monitor the success of each action and exceute some specific code after that (like display a success message and/or come back to the home page).
