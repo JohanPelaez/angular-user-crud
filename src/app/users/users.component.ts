@@ -11,13 +11,23 @@ import {
 @Component({
   selector: 'app-users',
   template: `
+  <div class="row message" 
+  [ngClass]="{'hide-message': !showMessage}">
+    <div class="col-sm-12">
+      {{message}}
+      <span (click)="showMessage=false;">x</span>
+    </div>
+  </div>
     <router-outlet></router-outlet>`,
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-
+  showMessage: boolean;
+  message: string;
   constructor(private router: Router,
               private store: Store<AppState>) {
+                this.showMessage = false;
+                this.message = '';
   }
 
   ngOnInit() {
@@ -62,8 +72,9 @@ export class UsersComponent implements OnInit {
    */
   actionSuccess(done: boolean, message: string) {
     if (done) {
-      alert(message);
       this.router.navigate(['/users']);
+      this.showMessage = true;
+      this.message = message;
     }
   }
 

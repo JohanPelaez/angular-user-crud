@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+.user-form{
+    max-width: 320px;
+    margin: auto;
+    .buttons-group{
+        margin-top: 15px;
+        text-align: right;
+    }
+}

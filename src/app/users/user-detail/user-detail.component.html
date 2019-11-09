@@ -1,24 +1,22 @@
-<div *ngIf="user | async; let user;">
+<div *ngIf="user | async; let user;" class="user-form">
   <h2>{{title}}</h2>
 
   <div class="row">
-    <div class="col-sm-9">
-        <div class="row">
-            <label class="col-sm-2">ID:</label>
-            <div class="col-sm-9">{{user.ID}}</div>
-          </div>
+    <div class="col-sm-12">
       <div class="row">
-        <label class="col-sm-2">Name:</label>
+        <label class="col-sm-3">Name:</label>
         <div class="col-sm-9">{{user.UserName}}</div>
       </div>
       <div class="row">
-        <label class="col-sm-2">Password:</label>
+        <label class="col-sm-3">Password:</label>
         <div class="col-sm-9">{{user.Password}}</div>
       </div>
-      <div class="btn-group">
+      <div class="btn-group buttons-group">
+          <div class="btn-group">
         <button type="button" class="btn btn-secondary btn-sm" routerLink="/users">
           <i class="fa fa-arrow-left"></i> Back
         </button>
+          </div>
         <button type="button" (click)="delete(user.ID)" class="btn btn-danger btn-sm">
           <i class="fa fa-times"></i> Delete
         </button>

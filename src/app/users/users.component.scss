@@ -1,0 +1,17 @@
+:host{
+    
+    .message{
+        background-color:black;
+        color: blanchedalmond;
+        padding: 10px;
+        margin-bottom: 15px;
+        span{
+            float: right;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    }
+    .hide-message{
+        display: none;
+    }
+}

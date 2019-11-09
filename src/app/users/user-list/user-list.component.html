@@ -1,36 +1,48 @@
-<div class="row">
-  <div class="col-sm-6">
-    <h2>{{title}}</h2>
+<div class="user-list">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="col-sm-6 align-bottom">
+      <button class="btn btn-info pull-right" routerLink="/users/create">Create new user</button>
+    </div>
   </div>
-  <div class="col-sm-6 align-bottom">
-    <button class="btn btn-primary pull-right" routerLink="/users/create">Create new user</button>
-  </div>
+  <table class="table table-striped" style="text-align: left">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Password</th>
+      <th>View</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users | async">
+      <td>{{user.UserName}}</td>
+      <td>{{user.Password}}</td>
+      <td>
+        <div class="btn-group">
+          <button routerLink="/users/detail/{{user.ID}}" class="btn btn-secondary btn-sm">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </td>
+      <td>
+        <div class="btn-group">
+          <button routerLink="/users/edit/{{user.ID}}" class="btn btn-info btn-sm">
+            <i class="fa fa-pencil-square-o"></i>
+          </button>
+        </div>
+      </td>
+      <td>
+        <div class="btn-group">
+          <button (click)="delete(user.ID)" class="btn btn-danger btn-sm">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
-<table class="table table-striped" style="text-align: left">
-  <thead>
-  <tr>
-    <th></th>
-    <th>Name</th>
-    <th>password</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let user of users | async">
-    <td>
-      <div class="btn-group">
-        <button routerLink="/users/detail/{{user.ID}}" class="btn btn-secondary btn-sm">
-          <i class="fa fa-search"></i>
-        </button>
-        <button routerLink="/users/edit/{{user.ID}}" class="btn btn-info btn-sm">
-          <i class="fa fa-pencil-square-o"></i>
-        </button>
-        <button (click)="delete(user.ID)" class="btn btn-danger btn-sm">
-          <i class="fa fa-times"></i>
-        </button>
-      </div>
-    </td>
-    <td>{{user.UserName}}</td>
-    <td>{{user.Password}}</td>
-  </tr>
-  </tbody>
-</table>
